@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
   // Function to get the value of a cookie by name
   function getCookie(name) {
@@ -15,9 +16,14 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // 1. Get the value of the 'count' cookie
+  let count = parseInt(getCookie('count')) || 0;
   // 2. If the cookie exists, increment the value and update the cookie
+  count++;
   // 3. If the cookie does not exist, create it and set the value to 1
+  setCookie('count', count,7);
   // 4. Display the count on the webpage
 
   // your code here
+  const countDisplay = document.getElementById('countDisplay');
+  countDisplay.textContent = `You have visited this page ${count} time${count !== 1 ? 's' : ''}.`;
 });
